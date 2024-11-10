@@ -18,5 +18,19 @@
     <ClCompile Include="Simulator_Strategie.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Civlizatie.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Cladirii.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Civlizatie.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Cladirii.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
