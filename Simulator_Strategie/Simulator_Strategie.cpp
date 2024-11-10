@@ -1,3 +1,4 @@
+
 #include <iostream>
 #include <cstdlib>
 #include "Civlizatie.h"
@@ -60,3 +61,4 @@ system("cls");
 
     return 0;
 }
+
