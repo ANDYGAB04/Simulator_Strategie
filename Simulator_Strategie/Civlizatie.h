@@ -2,6 +2,7 @@
 #include <string>
 #include <vector>
 #include<map>
+#include<unordered_map>
 
 
 using namespace std;
@@ -15,8 +16,6 @@ public:
 	Civilizatie();
 	~Civilizatie();
 	void AdaugareCivilizatie(string nume, int id);
-	void ListareCivilizatii(string nume,int id,map<string,int>&listacivilizatii);
-
-	map<string, int> listacivilizatii;
+	unordered_map<string, int> ListareCivilizatii(string nume,int id);
 };
 

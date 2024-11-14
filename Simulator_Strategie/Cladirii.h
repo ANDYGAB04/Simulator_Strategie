@@ -9,12 +9,12 @@ class Cladiri
 private:
 	int numarcladire;
 	int id;
+	string civ;
 public:
-	map<string, int> listacladiri;
 	
 	Cladiri();
 	~Cladiri();
-	void AdaugareCladiri(map<string,int>&listacladiri,int _id,int _numarcladire);
+	map<string, vector<string>> AdaugareCladiri(int _id,int _numarcladire,string _civ);
 
 
 };

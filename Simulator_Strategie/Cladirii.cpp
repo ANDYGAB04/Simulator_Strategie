@@ -9,12 +9,13 @@ Cladiri::~Cladiri()
 {
 }
 
-void Cladiri::AdaugareCladiri(map<string, int>& listacladiri, int _id, int _numarcladire)
+map<string,vector<string>> Cladiri::AdaugareCladiri( int _id, int _numarcladire, string _civ)
 {
     this->numarcladire = _numarcladire;
     this->id = _id;
+	this->civ = _civ;
     string cladire;
-
+    map<string, vector<string>> listacladiri;
     switch (numarcladire)
     {
     case 0:
@@ -36,14 +37,11 @@ void Cladiri::AdaugareCladiri(map<string, int>& listacladiri, int _id, int _numa
         cladire = "Ferma";
         break;
     default:
-        return; 
+        return listacladiri; 
     }
-    if (listacladiri.find(cladire) == listacladiri.end())
-    {
-        listacladiri.insert(pair<string, int>(cladire, id));
-    }
-    else
-    {
-        cout << "Constructia " << cladire << " exista deja si nu poate fi construita din nou." << endl;
-    }
+   // if (find(listacladiri[civ].begin(), listacladiri[civ].end(), cladire) == listacladiri[civ].end())
+   // {
+        listacladiri[civ].push_back(cladire);
+   // }
+    return listacladiri;
 }

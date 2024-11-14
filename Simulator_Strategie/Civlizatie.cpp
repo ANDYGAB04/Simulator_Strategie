@@ -17,10 +17,12 @@ void Civilizatie::AdaugareCivilizatie(string nume, int id)
 	//cout << "Civilizatia " << nume << " a fost adaugata cu id-ul " << id << "." << endl;
 }
 
-void Civilizatie::ListareCivilizatii(string nume, int id, map<string, int>&listacivilizatii)
+unordered_map<string,int> Civilizatie::ListareCivilizatii(string nume, int id)
 {
 	this->nume = nume;
 	this->id = id;
-	listacivilizatii.insert(pair<string, int>(nume, id));
+	unordered_map<string, int> listacivilizatii;
+	listacivilizatii[nume] = id;
+	return listacivilizatii;
 	//cout << "Civilizatia " << nume << " a fost adaugata cu id-ul " << id << "." << endl;
 }
