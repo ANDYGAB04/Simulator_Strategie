@@ -4,6 +4,8 @@
 #include <cstdlib>
 #include "Civlizatie.h"
 #include "Cladirii.h"
+#include "Resurse.h"
+#include "GestionareResurse.h"
 using namespace std;
 
 int main()
@@ -11,24 +13,31 @@ int main()
     cout << "Numar de civilizatii: ";
     int nr, nrcladiri;
     string civilizatie;
-    cin >> nr;
+    nr = 2;
     system("cls");
 
     Civilizatie civ;
     Cladiri mCladiri;
     map<string, vector<string>> mListaCladiri;
     unordered_map<string, int> mListaCivilizatii;
+	map<string, vector<Resurse>> mResurse;
 
     for (auto i = 1; i <= nr; i++) {
         cout << "Nume civilizatie: ";
         cin >> civilizatie;
         civ.AdaugareCivilizatie(civilizatie, i);
+        GestionareResurse mResursa(civilizatie, i);
         unordered_map<string, int> tempMap = civ.ListareCivilizatii(civilizatie, i);
         mListaCivilizatii.insert(tempMap.begin(), tempMap.end());
         auto atempMap = mCladiri.AdaugareCladiri(i, 0,civilizatie);
         mListaCladiri.insert(atempMap.begin(), atempMap.end());
+        mResurse[civilizatie]= { Resurse("Bani",0),Resurse("Grau",0),Resurse("Paine",0),Resurse("Lemn",0),Resurse("Caramida",0),Resurse("Fier",0) };
+		mResurse[civilizatie] = mResursa.AdaugareResurse(civilizatie, i, "Primarie",mResurse[civilizatie]);
     }
-
+    for (const auto& pair : mResurse){
+    
+    
+    }
     system("cls");
     for (const auto& pair : mListaCivilizatii) {
         int i = 1;
