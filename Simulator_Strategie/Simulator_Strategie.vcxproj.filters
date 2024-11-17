@@ -24,12 +24,24 @@
     <ClCompile Include="Cladirii.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Resurse.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GestionareResurse.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Civlizatie.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Cladirii.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Resurse.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GestionareResurse.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
