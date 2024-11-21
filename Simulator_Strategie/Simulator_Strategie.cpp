@@ -6,6 +6,7 @@
 #include "Cladirii.h"
 #include "Resurse.h"
 #include "GestionareResurse.h"
+#include "Armata.h"
 using namespace std;
 
 int main()
@@ -16,25 +17,39 @@ int main()
     nr = 2;
     system("cls");
 
+
     Civilizatie civ;
+
     Cladiri mCladiri;
+
     map<string, vector<string>> mListaCladiri;
+
     unordered_map<string, int> mListaCivilizatii;
+
 	map<string, vector<Resurse>> mResurse;
 
+	map<string, vector<Armata>> mArmata;
+
+	//Adaugare civilizatii
     for (auto i = 1; i <= nr; i++) {
+
         cout << "Nume civilizatie: ";
         cin >> civilizatie;
+
         civ.AdaugareCivilizatie(civilizatie, i);
         GestionareResurse mResursa(civilizatie, i);
+
         unordered_map<string, int> tempMap = civ.ListareCivilizatii(civilizatie, i);
         mListaCivilizatii.insert(tempMap.begin(), tempMap.end());
+
         auto atempMap = mCladiri.AdaugareCladiri(i, 0,civilizatie);
         mListaCladiri.insert(atempMap.begin(), atempMap.end());
+
         mResurse[civilizatie]= { Resurse("Bani",0),Resurse("Grau",0),Resurse("Paine",0),Resurse("Lemn",0),Resurse("Caramida",0),Resurse("Fier",0) };
 		mResurse[civilizatie] = mResursa.AdaugareResurse(civilizatie, i, "Primarie",mResurse[civilizatie]);
     }
     system("cls");
+
     for (const auto& pair : mListaCivilizatii) {
         int i = 1;
         cout << "Civilizatia " << pair.first << " va construi urmatoarea caldire " << endl;
@@ -47,8 +62,11 @@ int main()
         cout << "6.Iesire" << endl;
         cout << "Numar cladirie: ";
         cin >> nrcladiri;
+
         map<string, vector<string>> atempMap;
+
         bool ok = false;
+
         switch (nrcladiri)
         {
         case 1:
@@ -142,6 +160,10 @@ int main()
     }
     system("cls");
 
+    
+    
+    //primire resurse
+
     for (const auto pair : mResurse) {
         int i = 1;
 		cout << "Civilizatia " << pair.first << " va primi urmatoarea resurse " << endl;
@@ -154,6 +176,40 @@ int main()
         i++;
     }
 
+    system("cls");
+    //gestionare armata
+
+    for (const auto& pair : mListaCivilizatii) {
+        int nrunitate;
+		cout << "Civilizatia " << pair.first << " va construi urmatoarea unitate " << endl;
+
+        cout << "1.Barbar" << endl;
+        cout << "2.Arcas" << endl;
+        cout << "3.Gigant" << endl;
+
+        cin >> nrunitate;
+        
+        switch (nrunitate)
+        {
+        case 1: {
+			Barbari mBarbari("Barbari", 100, 10, 0, mArmata[pair.first]);
+                break;
+            }
+        case 2: {
+			Arcasi mArcasi("Arcasi", 50, 20, 0, mArmata[pair.first]);
+			break;
+            }
+        case 3: {
+			Giganti mGiganti("Giganti", 200, 50, 0, mArmata[pair.first]);
+			break;
+           }
+		default:
+          {
+            break;
+          }
+        }
+        system("cls");
+    }
 
     return 0;
 }
