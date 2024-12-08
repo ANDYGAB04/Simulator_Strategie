@@ -1,38 +1,46 @@
 #include "Armata.h"
 
-vector<Armata> Armata::armata(string nume, int viata, int atac,int numarunitati)
+
+
+void ResursaMilitara::setViata(int viata)
 {
-	return vector<Armata>();
+	this->viata = viata;
 }
 
-Barbari::Barbari(string nume, int viata, int atac, int numarunitati,vector<Armata>& armata)
+void ResursaMilitara::setAtac(int atac)
 {
-	this->viata = 100;
-	this->atac = 10;
-	this->nume = "Barbari";
-	this->numarunitati = numarunitati;
-	numarunitati++;
-	armata.push_back(*this);	
-
+	this->atac = atac;
+}
+int ResursaMilitara::getAtac() const
+{
+	return atac;
+}
+vector<ResursaMilitara*> Armata::getResursaMilitare() const
+{
+	return armata;
+}
+void Armata::adaugaResursaMilitare(ResursaMilitara* resursa)
+{
+	armata.push_back(resursa);
 }
 
-Arcasi::Arcasi(string nume, int viata, int atac, int numarunitati, vector<Armata>& armata)
+Barbar::Barbar()
 {
-	this->viata = 50;
-	this->atac = 20;
-	this->nume = "Arcasi";
-	this->numarunitati = numarunitati;
-	numarunitati++;
-	armata.push_back(*this);
+	setNume("Barbar");
+	setViata(100);
+	setAtac(20);
 }
 
-Giganti::Giganti(string nume, int viata, int atac,  int numarunitati, vector<Armata>& armata)
+Arcas::Arcas()
 {
-	this->viata = 200;
-	this->atac = 50;
-	this->nume = "Giganti";
-	this->numarunitati = numarunitati;
-	numarunitati++;
-	armata.push_back(*this);
+	setNume("Arcas");
+	setViata(50);
+	setAtac(30);
 }
 
+Gigant::Gigant()
+{
+	setNume("Gigant");
+	setViata(200);
+	setAtac(10);
+}

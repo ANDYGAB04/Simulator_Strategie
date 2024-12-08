@@ -3,19 +3,33 @@
 #include <vector>
 #include<map>
 #include<unordered_map>
-
+#include "Cladire.h"
+#include "Resursa.h"
+#include "Armata.h"
 
 using namespace std;
+
 class Civilizatie
 {
-private:
-	string nume;
-	int id;
-
 public:
 	Civilizatie();
-	~Civilizatie();
-	void AdaugareCivilizatie(string nume, int id);
-	unordered_map<string, int> ListareCivilizatii(string nume,int id);
-};
+	~Civilizatie();  
 
+	void updateResursa(Resursa::TipResursa tipResursa, int cantitate);
+	void updateCladire(Cladire::TipCladire tipCladire,int numarcladire);
+	void NumeCivilizatie(string nume);
+	string getNume() const;
+	int getNumarCladire(Cladire::TipCladire tipCladire) const;
+	int getCantitateResursa(Resursa::TipResursa tipResursa) const;
+	void AdaugareUnitate(ResursaMilitara* unitate);
+	void setHealth(int health);
+	int getHealth() const;
+	vector<ResursaMilitara*> getArmata() const;
+private:
+	string nume;
+	vector<Cladire*> cladiri;
+	vector<Resursa*> resurse;
+	int health;
+	Armata* armata;
+
+};

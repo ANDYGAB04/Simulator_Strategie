@@ -21,13 +21,16 @@
     <ClCompile Include="Civlizatie.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Cladirii.cpp">
+    <ClCompile Include="Armata.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Resurse.cpp">
+    <ClCompile Include="Cladire.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GestionareResurse.cpp">
+    <ClCompile Include="Resursa.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SimulatorCivilizatie.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -35,13 +38,16 @@
     <ClInclude Include="Civlizatie.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Cladirii.h">
+    <ClInclude Include="Armata.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Resurse.h">
+    <ClInclude Include="Cladire.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="GestionareResurse.h">
+    <ClInclude Include="Resursa.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SimulatorCivilizatie.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

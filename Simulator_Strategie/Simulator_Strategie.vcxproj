@@ -129,17 +129,17 @@
   <ItemGroup>
     <ClCompile Include="Armata.cpp" />
     <ClCompile Include="Civlizatie.cpp" />
-    <ClCompile Include="Cladirii.cpp" />
-    <ClCompile Include="GestionareResurse.cpp" />
-    <ClCompile Include="Resurse.cpp" />
+    <ClCompile Include="Cladire.cpp" />
+    <ClCompile Include="Resursa.cpp" />
+    <ClCompile Include="SimulatorCivilizatie.cpp" />
     <ClCompile Include="Simulator_Strategie.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Armata.h" />
     <ClInclude Include="Civlizatie.h" />
-    <ClInclude Include="Cladirii.h" />
-    <ClInclude Include="GestionareResurse.h" />
-    <ClInclude Include="Resurse.h" />
+    <ClInclude Include="Cladire.h" />
+    <ClInclude Include="Resursa.h" />
+    <ClInclude Include="SimulatorCivilizatie.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
