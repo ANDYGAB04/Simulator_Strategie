@@ -64,27 +64,40 @@ void SimulatorCivilizatie::run()
 			}
 			if (i == -1) {
 				i++;
+				if (i == 1)
 				for (const auto& unit : civilizatii[i].getArmata())
 				{
-					civilizatii[i].setHealth(civilizatii[i].getHealth() - unit->getAtac());
+					civilizatii[i-1].setHealth(civilizatii[i-1].getHealth() - unit->getAtac());
 
 				}
+				else
+					for (const auto& unit : civilizatii[i].getArmata())
+					{
+						civilizatii[i + 1].setHealth(civilizatii[i + 1].getHealth() - unit->getAtac());
+
+					}
 				i--;
 				break;
 			}
-
+			     if (i == 1)
 				for (const auto& unit : civilizatii[i].getArmata())
 				{
-					civilizatii[i].setHealth(civilizatii[i].getHealth() - unit->getAtac());
+					civilizatii[i-1].setHealth(civilizatii[i-1].getHealth() - unit->getAtac());
 
 				}
+				 else
+					 for (const auto& unit : civilizatii[i].getArmata())
+					 {
+						 civilizatii[i + 1].setHealth(civilizatii[i + 1].getHealth() - unit->getAtac());
+
+					 }
 
             
 		}
 	}
 	if (civilizatii[1].getHealth() <= 0)
 	{
-		cout << "Civilizatie: " << civilizatii[2].getNume() << " a castigat" << endl;
+		cout << "Civilizatie: " << civilizatii[0].getNume() << " a castigat" << endl;
 	}
 	else
 	{
