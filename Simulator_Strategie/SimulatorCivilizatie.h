@@ -22,5 +22,6 @@ public:
 	void cladiri(int &indexcivilizatie);
 	void resurse(int indexcivilizatie);
 	void armata(int& indexcivilizatie);
+	void lista(int& indexcivilizatie);
 };
 

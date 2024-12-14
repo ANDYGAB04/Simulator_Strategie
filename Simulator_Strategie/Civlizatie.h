@@ -25,6 +25,9 @@ public:
 	void setHealth(int health);
 	int getHealth() const;
 	vector<ResursaMilitara*> getArmata() const;
+	vector<Cladire*> getCladiri() const;
+	vector<Resursa*> getResurse() const;	
+
 private:
 	string nume;
 	vector<Cladire*> cladiri;

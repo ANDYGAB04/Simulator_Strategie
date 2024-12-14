@@ -40,6 +40,7 @@ void SimulatorCivilizatie::run()
 			cout << "1. Construieste cladire" << endl;
 			cout << "2. Colecteaza resurse" << endl;
 			cout << "3. Construieste armata" << endl;
+			cout << "4. Liste" << endl;
 			cout << "Introduceti optiunea: ";
 			int optiune;
 			cin >> optiune;
@@ -59,7 +60,13 @@ void SimulatorCivilizatie::run()
 				system("cls");
 				armata(i);
 				break;
+			case 4:
+				system("cls");
+			   lista(i);
+			   break;
 			default:
+				i--;
+				system("cls");
 				break;
 			}
 			if (i == -1) {
@@ -108,11 +115,11 @@ void SimulatorCivilizatie::run()
 void SimulatorCivilizatie::cladiri(int& indexcivilizatie)
 {
 	cout << "Civilizatie: " << civilizatii[indexcivilizatie].getNume() << " vrea sa construieasca urmatoare cladire" << endl;
-	cout << "1. Gater" << endl;
-	cout << "2. Moara" << endl;
-	cout << "3. Ferma" << endl;
-	cout << "4. Mina" << endl;
-	cout << "5. Caramidarie" << endl;
+	cout << "1. Gater(4 Bani,2 Paine)" << endl;
+	cout << "2. Moara(3 Bani,3 Grau)" << endl;
+	cout << "3. Ferma(5 Bani)" << endl;
+	cout << "4. Mina(6 Bani,3 Caramida) " << endl;
+	cout << "5. Caramidarie(5 Bani,4 Lemn)" << endl;
 	cout << "6. Iesire" << endl;
 	cout << "Introduceti optiunea: ";
 	int optiune;
@@ -216,6 +223,7 @@ void SimulatorCivilizatie::cladiri(int& indexcivilizatie)
 		system("cls");
 		break;
 	default:
+		  indexcivilizatie--;
 		  cladiri(indexcivilizatie);
 		  break;
     }
@@ -266,9 +274,9 @@ void SimulatorCivilizatie::resurse(int indexcivilizatie)
 void SimulatorCivilizatie::armata(int& indexcivilizatie)
 {
 	cout << "Civilizatie: " << civilizatii[indexcivilizatie].getNume() << " vrea sa construiasca urmatoare unitate militara" << endl;
-	cout << "1. Barbar" << endl;
-	cout << "2. Arcas" << endl;
-	cout << "3. Gigant" << endl;
+	cout << "1. Barbar(3 Fier,5 Paine)" << endl;
+	cout << "2. Arcas(4 Fier,7 Paine)" << endl;
+	cout << "3. Gigant(10 Fier,7 Caramida)" << endl;
 	cout << "4. Iesire" << endl;
 	cout << "Introduceti optiunea: ";
 	int optiune;
@@ -334,6 +342,67 @@ void SimulatorCivilizatie::armata(int& indexcivilizatie)
 		indexcivilizatie--;
 		system("cls");
 		break;
-	}
 
+	default:
+		indexcivilizatie--;
+		armata(indexcivilizatie);
+		break;
+	}
 }
+
+void SimulatorCivilizatie::lista(int& indexcivilizatie)
+{
+	cout << "Liste" << endl;
+	cout << "1. Lista cladiri" << endl;
+	cout << "2. Lista resurse" << endl;
+	cout << "3. Lista armata" << endl;
+	cout << "4. Iesire" << endl;
+	cout << "Introduceti optiunea: ";
+	int optiune;
+	cin >> optiune;
+	switch (optiune)
+	{
+	case 1:
+        system("cls");
+        cout << "Lista cladiri pentru civilizatia: " << civilizatii[indexcivilizatie].getNume() << endl;
+        for (const auto& cladire : civilizatii[indexcivilizatie].getCladiri())
+        {
+        cout << "Cladire: " << cladire->getTipCladireAsString() << ", Numar: " << cladire->getNumarCladire() << endl;
+        }
+		this_thread::sleep_for(chrono::seconds(3));
+		system("cls");
+		indexcivilizatie--;
+        break;
+	case 2:
+        system("cls");
+        cout << "Lista resurse pentru civilizatia: " << civilizatii[indexcivilizatie].getNume() << endl;
+        for (const auto& resursa : civilizatii[indexcivilizatie].getResurse())
+        {
+        cout << "Resursa: " << resursa->tipResursaToString() << ", Cantitate: " << resursa->getNumarResursa() << endl;
+        }
+        this_thread::sleep_for(chrono::seconds(3));
+        system("cls");
+        indexcivilizatie--;
+		break;
+	case 3:
+		system("cls");
+		cout << "Lista armata pentru civilizatia: " << civilizatii[indexcivilizatie].getNume() << endl;
+		for (const auto& unitate : civilizatii[indexcivilizatie].getArmata())
+		{
+			cout << "Unitate: " << typeid(*unitate).name() << ", Atac: " << unitate->getAtac() << endl;
+		}
+		this_thread::sleep_for(chrono::seconds(3));
+		system("cls");
+		indexcivilizatie--;
+		break;
+	case 4:
+		system("cls");
+		indexcivilizatie--;
+		break;
+	default:
+		system("cls");
+		lista(indexcivilizatie);
+		break;
+	}
+}
+

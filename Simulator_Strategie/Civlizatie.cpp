@@ -89,4 +89,14 @@ vector<ResursaMilitara*> Civilizatie::getArmata() const
 	return armata->getResursaMilitare();
 }
 
+vector<Cladire*> Civilizatie::getCladiri() const
+{
+    return cladiri;
+}
+
+vector<Resursa*> Civilizatie::getResurse() const
+{
+    return resurse;
+}
+
 

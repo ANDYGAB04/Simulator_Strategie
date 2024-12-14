@@ -13,6 +13,8 @@ public:
     void setNumarCladire(int numarcladire);
     int getNumarCladire() const;
 
+    string getTipCladireAsString() const;
+
 private:
     int numarcladire;
     TipCladire tip;
